@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="theme-color" content="#06020c">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A birthday surprise</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+<div class="aurora" id="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<canvas id="particles" aria-hidden="true"></canvas>
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<!-- 1. OPENING SCREEN -->
+<section id="opening" class="screen" aria-label="Opening">
+  <div class="film-bg" aria-hidden="true"></div>
+  <div class="film-dust" id="filmDust" aria-hidden="true"></div>
+  <div class="film">
+    <div class="film-light" aria-hidden="true"></div>
+    <p class="film-name" id="filmName"></p>
+    <p class="film-line l1" id="lineOne"></p>
+    <p class="film-line l2" id="lineTwo"></p>
+    <button id="openBtn" class="btn" type="button"><span id="openLabel">Open Your Surprise</span> <span class="arr" aria-hidden="true">→</span></button>
+  </div>
+  <p class="film-skip" aria-hidden="true">Tap to skip</p>
+</section>
+
+<main id="story" hidden>
+  <!-- 2. BIRTHDAY REVEAL -->
+  <section id="reveal" class="screen glow">
+    <p class="small-line" id="smallLine">Today is all about you</p>
+    <h1 id="birthdayTitle" aria-label="Happy Birthday"></h1>
+    <a href="#message" class="scroll-hint" aria-label="Scroll down"><span></span></a>
+  </section>
+
+  <!-- 3. PERSONAL MESSAGE -->
+  <section id="message" class="section">
+    <h2 class="hand" id="messageHeading"></h2>
+    <p id="messageText" class="message glass"></p>
+  </section>
+
+  <!-- 4. MEMORIES GALLERY -->
+  <section id="memories" class="section wide">
+    <h2 class="title">Memories we keep</h2>
+    <div id="gallery" class="gallery"></div>
+  </section>
+
+  <!-- 5. TIMELINE -->
+  <section id="timeline-section" class="section">
+    <h2 class="title">Our story</h2>
+    <ol id="timeline" class="timeline"></ol>
+  </section>
+
+  <!-- 6. COUNTDOWN -->
+  <section id="countdown-section" class="section">
+    <h2 class="title" id="countdownTitle">Until your birthday</h2>
+    <div class="countdown" id="countdown">
+      <div class="glass"><b id="cd-days">0</b><span>Days</span></div>
+      <div class="glass"><b id="cd-hours">0</b><span>Hours</span></div>
+      <div class="glass"><b id="cd-minutes">0</b><span>Minutes</span></div>
+      <div class="glass"><b id="cd-seconds">0</b><span>Seconds</span></div>
+    </div>
+  </section>
+
+  <!-- 7. MUSIC -->
+  <section id="music-section" class="section">
+    <h2 class="title">A song for you</h2>
+    <div class="player glass">
+      <button id="playBtn" class="play" aria-label="Play song">
+        <svg viewBox="0 0 24 24" class="i-play"><path d="M8 5v14l11-7z"/></svg>
+        <svg viewBox="0 0 24 24" class="i-pause"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+      </button>
+      <div class="player-info">
+        <span id="songTitle">Our song</span>
+        <div class="bar" id="bar"><i id="barFill"></i></div>
+        <small id="songStatus">Press play when you are ready</small>
+      </div>
+    </div>
+    <audio id="audio" src="song.mp3" preload="none"></audio>
+  </section>
+
+  <!-- HIDDEN SURPRISE trigger (small "Click me") -->
+  <section id="secret-section" class="section">
+    <button id="secretBtn" class="secret-btn" type="button">
+      <span class="sheart" aria-hidden="true">♥</span>
+      <span id="secretLabel">Click me</span>
+    </button>
+  </section>
+
+  <!-- 8. FINAL SURPRISE -->
+  <section id="final" class="screen glow">
+    <h2 class="hand big" id="finalLead">One last thing...</h2>
+    <p id="finalMessage" class="final-msg"></p>
+    <button id="replayBtn" class="btn">Replay the Surprise</button>
+  </section>
+</main>
+
+<!-- HIDDEN SURPRISE full-screen card -->
+<div class="secret" id="secret" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="secret-dim"></div>
+  <div class="secret-card">
+    <div class="secret-hearts" id="secretHearts" aria-hidden="true"></div>
+    <div class="secret-beat" aria-hidden="true">♥</div>
+    <p class="secret-kicker" id="secretKicker"></p>
+    <p class="secret-msg" id="secretMsg"></p>
+    <button id="secretClose" class="btn secret-close" type="button">Close</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
